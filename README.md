@@ -22,3 +22,4 @@ end
 
 The app is now live and can be visited locally at *localhost:3000* after starting the service by running ```rails s``` from the command line.
 
+- Rename *app/assets/stylesheets/application.css* to a *.scss* type of file (sass)
