@@ -37,3 +37,21 @@ validates :username, presence: true, uniqueness: { case_sensitive: false }
 validates :first_name, presence: true
 validates :last_name, presence: true
 ```
+
+- As suggested by the Devise documentation, add the following to *application_controller.rb*:
+```
+before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :first_name, :last_name])
+  end
+```
+
+Add a **full_name** method to *user.rb*:
+```
+def full_name
+  [first_name, last_name].join(' ')
+end
+```
