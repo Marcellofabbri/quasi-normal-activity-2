@@ -22,4 +22,18 @@ end
 
 The app is now live and can be visited locally at *localhost:3000* after starting the service by running ```rails s``` from the command line.
 
-- Rename *app/assets/stylesheets/application.css* to a *.scss* type of file (sass)
+- Rename *app/assets/stylesheets/application.css* to a *.scss* type of file (sass).
+- Add ```@import "bootstrap/scss/bootstrap";``` to that new scss file.
+
+- Add ```pages#home``` as the root route in *routes.rb*. Add *pages_controller.rb* with a ```home``` action. Add *home.html.erb*. Add the navbar in *application.html.erb*.
+
+- Add ```gem 'devise'``` and run ```bundle install``` for session management.
+- Run ```rails g devise:install``` and ```rails g devise:views``` and ```rails g devise user username first_name last_name```.
+- In the newly created migration, add ```, null: false``` to all three fields (username, first_name and last_name) as well as ```add_index :users, :username,         unique: true```. Run the migration (```rails db:migrate```).
+
+- Add validations to *user.rb* model:
+```
+validates :username, presence: true, uniqueness: { case_sensitive: false }
+validates :first_name, presence: true
+validates :last_name, presence: true
+```
