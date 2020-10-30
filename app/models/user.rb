@@ -8,7 +8,13 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  has_many :categories
+
   def full_name
     [first_name, last_name].join(' ')
+  end
+
+  def to_param
+    username
   end
 end

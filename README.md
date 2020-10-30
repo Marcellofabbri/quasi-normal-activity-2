@@ -49,9 +49,22 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   end
 ```
 
-Add a **full_name** method to *user.rb*:
+- Add a **full_name** method to *user.rb*:
 ```
 def full_name
   [first_name, last_name].join(' ')
 end
 ```
+
+- Add a **category** model: ```rails g model category user:belongs_to name:string```
+- Specify in the **user** model: ```has_many :categories```
+
+- Create a profile page by username. In *routes.rb*, specify ```get '/@:username', to: 'users#show', as: :profile```. Create *users_controller.rb* and specify a **show** action:
+```
+class UsersController < ApplicationController
+  def show
+    @user = User.find_by(username: params[:username])
+  end
+end
+```
+Create a *show.html.erb* view under *views/users*.
