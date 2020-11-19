@@ -1,1 +1,7 @@
 <h2>Quasi Normal Activity main page</h2>
+
+<% if signed_in? %>
+  <%= link_to "Your page", "/#{@current_user_handle}" %>
+<% end %>
+
+<%= :current_user_profile %>
