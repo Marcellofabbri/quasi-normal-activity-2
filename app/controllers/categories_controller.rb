@@ -4,9 +4,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.build(category_params)
     if @category.save
-      redirect_to root_path
+      redirect_to current_user_profile_path
     else
       render :new
     end
@@ -15,6 +15,11 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.permit(:name)
+    params.require(:category).permit(:name, :image)
   end
+
+  def current_user_profile_path
+    "/#{current_user.username} #{current_user.id}"
+  end
+
 end

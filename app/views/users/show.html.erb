@@ -1,7 +1,7 @@
-<h2 class="usernameProfile"><%= @user.full_name %></h2>
+<h2 class="usernameProfile"><%= @user.username %></h2>
 
 <% if (current_user.id==@user.id) %>
-  <a href="/newCategory" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add category</a>
+  <%= link_to "Add category", :add_category %>
 <% end %>
 <div id="categoriesList">
   <%= render 'categories/categories', categories: @categories %>

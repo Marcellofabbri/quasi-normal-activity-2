@@ -3,7 +3,11 @@
     <div class="card">
       <div class="card-body p-1">
         <%= category.name %>
+        <% if category.image.attached? %>
+          <%= image_tag category.image, class: "categoryImage" %>
+        <% end %>
       </div>
     </div>
   <% end %>
+
 </div>
