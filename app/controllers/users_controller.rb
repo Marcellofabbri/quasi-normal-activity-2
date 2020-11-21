@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: current_user.username)
     @categories = @user.categories
     @handle = handle(@user)
+    @story = Story.new
   end
 
   def handle(user)

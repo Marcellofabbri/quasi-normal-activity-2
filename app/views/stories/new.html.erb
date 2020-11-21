@@ -1,0 +1,20 @@
+<div id="newStoryForm">
+  <%= form_for @story, html: { multipart: true } do |f| %>
+    <%= f.label :name, class: "label" %>
+    <%= f.text_field :title, id: "name", class: "field" %>
+    <br/>
+    <%= f.label :body, class: "label" %>
+    <%= f.text_field :body, id: "body", class: "field" %>
+    <br/>
+    <%= f.label :month, class: "label" %>
+    <%= f.select(:timestamp, @months, class: "field")%>
+    <br/>
+    <br/>
+    <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+
+    <p id="createStoryButton">
+      <%= f.submit %>
+    </p>
+
+  <% end %>
+</div>
