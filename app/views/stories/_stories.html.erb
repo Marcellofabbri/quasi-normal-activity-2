@@ -1,0 +1,15 @@
+<div class="storiesContainer">
+  <% stories.each do |story| %>  
+    <div class="storyCard">
+      <h3><%= story.title %></h3>
+      <h4><%= story.category.name %></h4>
+      <p>
+        <%= story.timestamp %>
+      </p>
+      <br/>
+      <p>
+        <%= story.body %>
+      </p>
+    </div>
+  <% end %>
+</div>

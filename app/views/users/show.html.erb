@@ -8,3 +8,7 @@
 </div>
 
 <%= link_to "New story", :new_story %>
+
+<div id="storiesList">
+  <%= render 'stories/stories', stories: @stories %>
+</div>
