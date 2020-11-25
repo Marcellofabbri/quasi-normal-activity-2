@@ -4,7 +4,7 @@
       <h3><%= story.title %></h3>
       <h4><%= story.category.name %></h4>
       <p>
-        <%= story.timestamp %>
+        <%= story.timestamp.strftime("%B %Y") %>
       </p>
       <br/>
       <p>
