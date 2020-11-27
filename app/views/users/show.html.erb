@@ -1,13 +1,14 @@
 <h2 class="usernameProfile"><%= @user.username %></h2>
 
-<% if (current_user.id==@user.id) %>
-  <%= link_to "Add category", :add_category %>
-<% end %>
 <div id="categoriesList">
   <%= render 'categories/categories', categories: @categories %>
 </div>
 
-<%= link_to "New story", :new_story %>
+<%= link_to "New story", :new_story, class: "newStory" %>
+<% if (current_user.id==@user.id) %>
+  <%= link_to "Add category", :add_category, class: "addCategory" %>
+  <%= link_to "Delete category", :delete_category, class: "deleteCategory" %>
+<% end %>
 
 <div id="storiesList">
   <%= render 'stories/stories', stories: @stories %>

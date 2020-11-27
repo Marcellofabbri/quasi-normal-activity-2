@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :categories
   get '/categories/new', to: 'categories#new', as: :add_category
   resources :stories
+  get '/categories/delete', to: 'categories#delete', as: :delete_category
 end

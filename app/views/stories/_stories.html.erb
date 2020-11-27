@@ -1,9 +1,19 @@
 <div class="storiesContainer">
   <% stories.each do |story| %>  
     <div class="storyCard">
-      <h3><%= story.title %></h3>
-      <h4><%= story.category.name %></h4>
+      <div class="storyHeader">
+        <div class="storyHeaderTitle">
+          <h4><%= story.title.upcase %></h4>
+        </div>
+        <div class="storyHeaderImage">
+          <%= image_tag story.category.image, class: "storyHeaderRound" %>
+        </div>
+      </div>
       <p>
+        <%= story.category.name %>
+      </p>
+      <p class="timestamp">
+        <%= image_tag image_path("calendar.png"), class: "icon" %>
         <%= story.timestamp.strftime("%B %Y") %>
       </p>
       <br/>

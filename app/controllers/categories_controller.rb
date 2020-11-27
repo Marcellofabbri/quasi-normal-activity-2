@@ -3,6 +3,9 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
+  def delete
+  end
+
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
