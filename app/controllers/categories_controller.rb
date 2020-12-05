@@ -6,6 +6,13 @@ class CategoriesController < ApplicationController
   def delete
   end
 
+  def show
+    @categories = Category.all.select { |category| category.user_id == current_user.id }
+  end
+
+  def edit
+  end
+
   def create
     @category = current_user.categories.build(category_params)
     if @category.save

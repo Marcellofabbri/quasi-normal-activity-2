@@ -105,20 +105,63 @@ body {
   font-size: 18px;
 }
 
-.addCategory {
+.addCategory, .newStory, .deleteCategory {
+  float: left;
   background-color: rgb(0, 140, 255);
-  padding: 10px;
-  margin: 10px;
+  margin: 5px;
+  padding: 7px;
   border-radius: 5px;
   text-decoration-line: none;
   color: white;
 }
 
-.addCategory, .newStory, .deleteCategory {
-  background-color: rgb(0, 140, 255);
-  padding: 7px;
-  margin-right: 10px;
+#sidebar {
+  float: left;
+  width: 15%;
+  height: 100%;
+  background-color: lightgrey;
   border-radius: 5px;
-  text-decoration-line: none;
-  color: white;
+}
+
+#categoriesAndStories {
+  float: right;
+  width: 85%;
+}
+
+#showContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.categoryCard {
+  background-color: #333;
+  flex-wrap: wrap;
+  width: 100px;
+  height: fit-content;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.categoryImage {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.categoryName, .deleteCategoryLink, .editCategoryLink {
+  color: lightgray;
+  font-size: 13px;
+  height: 13px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.deleteCategoryLink, .editCategoryLink {
+  margin: 2px;
+  font-size: 10px;
+  display: block;
+  align-self: center;
 }

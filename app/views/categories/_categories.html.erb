@@ -1,12 +1,17 @@
-<div class="card-columns">
+<div class="cards">
   <% categories.each do |category| %>
-    <div class="card">
-      <div class="card-body p-1">
+    <div class="categoryCard">
+      <% if category.image.attached? %>
+        <%= image_tag category.image, class: "categoryImage" %>
+      <% end %>
+      <p class="categoryName">
         <%= category.name %>
-        <% if category.image.attached? %>
-          <%= image_tag category.image, class: "categoryImage" %>
-        <% end %>
+      </p>
+      <div class="categoryLinks">
+        <%= link_to "DELETE", :delete_category, class: "deleteCategoryLink" %>
+        <%= link_to "EDIT", :modify_category, class: "editCategoryLink" %>
       </div>
+      
     </div>
   <% end %>
 

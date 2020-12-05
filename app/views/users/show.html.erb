@@ -1,15 +1,23 @@
 <h2 class="usernameProfile"><%= @user.username %></h2>
 
-<div id="categoriesList">
-  <%= render 'categories/categories', categories: @categories %>
+<div id="showContainer">
+  <% if (current_user.id == @user.id) %>
+    <div id="sidebar">
+      <%= link_to "New story", :new_story, class: "newStory" %>
+      <%= link_to "Add category", :add_category, class: "addCategory" %>
+      <%= link_to "Delete category", :delete_category, class: "deleteCategory" %>
+    </div>
+  <% end %>
+
+  <div id="categoriesAndStories">
+    <div id="categoriesList">
+      <%= render 'categories/categories', categories: @categories %>
+    </div>
+    <div id="storiesList">
+      <%= render 'stories/stories', stories: @stories %>
+    </div>
+  </div>
+  
 </div>
 
-<%= link_to "New story", :new_story, class: "newStory" %>
-<% if (current_user.id==@user.id) %>
-  <%= link_to "Add category", :add_category, class: "addCategory" %>
-  <%= link_to "Delete category", :delete_category, class: "deleteCategory" %>
-<% end %>
 
-<div id="storiesList">
-  <%= render 'stories/stories', stories: @stories %>
-</div>
