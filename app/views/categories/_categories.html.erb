@@ -8,7 +8,7 @@
         <%= category.name %>
       </p>
       <div class="categoryLinks">
-        <%= link_to "DELETE", :delete_category, class: "deleteCategoryLink" %>
+        <%= link_to "DELETE", category_path(category), method: :delete, data: { confirm: "Delete category and all associated stories?" }, class: "deleteCategoryLink" %>
         <%= link_to "EDIT", :modify_category, class: "editCategoryLink" %>
       </div>
       

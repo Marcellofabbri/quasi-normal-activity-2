@@ -6,6 +6,11 @@ class CategoriesController < ApplicationController
   def delete
   end
 
+  def destroy
+    category = Category.destroy(params[:id])
+    head :no_content
+  end
+
   def show
     @categories = Category.all.select { |category| category.user_id == current_user.id }
   end
