@@ -6,6 +6,14 @@ class CategoriesController < ApplicationController
   def delete
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    raise params.inspect
+  end
+
   def destroy
     category = Category.destroy(params[:id])
     head :no_content

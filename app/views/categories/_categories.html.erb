@@ -9,7 +9,7 @@
       </p>
       <div class="categoryLinks">
         <%= link_to "DELETE", category_path(category), method: :delete, data: { confirm: "Delete category and all associated stories?" }, class: "deleteCategoryLink" %>
-        <%= link_to "EDIT", :modify_category, class: "editCategoryLink" %>
+        <%= link_to "EDIT", edit_category_path(category), method: :get, class: "editCategoryLink" %>
       </div>
       
     </div>
