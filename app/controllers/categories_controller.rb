@@ -11,7 +11,9 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    @category = Category.find(params[:id])
+    @category.update(name: params[:category][:name], image: params[:category][:image])
+    redirect_to current_user_profile_path
   end
 
   def destroy
@@ -21,9 +23,6 @@ class CategoriesController < ApplicationController
 
   def show
     @categories = Category.all.select { |category| category.user_id == current_user.id }
-  end
-
-  def edit
   end
 
   def create
