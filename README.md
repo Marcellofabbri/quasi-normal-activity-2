@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2'
 ```
 - Run ```bundle``` from command line.
 - Run ```bundle exec rails new . -T --webpack```
-- Add the following to the Gemfile to install Rspec for Rails, run ```bundle```:
+- Add the following to the Gemfile to install Rspec for Rails and run ```bundle```:
 ```
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
